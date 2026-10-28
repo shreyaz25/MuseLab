@@ -20,7 +20,8 @@ const AXIS = { stroke: "#9aa3c4", fontSize: 12 } as const;
 const TOOLTIP = { contentStyle: { background: "#151c33", border: "1px solid #263053", borderRadius: 8 }, labelStyle: { color: "#9aa3c4" } };
 
 const zip = (times: number[], values: NumList, key = "v") => times.map((t, i) => ({ t, [key]: values[i] ?? null }));
-const secs = (v) => `${v.toFixed(0)}s`;
+
+const secs = (v: number) => `${v.toFixed(0)}s`;
 
 export function TimeLine({
   times,
