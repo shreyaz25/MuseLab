@@ -28,6 +28,18 @@ def create_app() -> FastAPI:
         description="Python audio-analysis and practice-session API for MuseLab.",
         lifespan=lifespan,
     )
+    from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "https://muselab-ic6zt43ig-shuah.vercel.app",
+        "http://localhost:5173",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
     origins = get_settings().cors_origins
     if origins:
         app.add_middleware(
