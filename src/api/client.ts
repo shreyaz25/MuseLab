@@ -1,7 +1,9 @@
 // Central API client: the ONLY place that knows the backend URL.
 import type { AnalysisResult, BackendConfig, SessionDetail, SessionList, SessionSummary, Stats } from "./types";
 
-export const API_BASE_URL: string = (import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8000").replace(/\/$/, "");
+export const API_BASE_URL: string = (
+  import.meta.env.VITE_API_BASE_URL || "https://muselab-k9uw.onrender.com"
+).replace(/\/+$/, "");
 
 export class ApiError extends Error {
   constructor(
