@@ -34,15 +34,16 @@ def create_app() -> FastAPI:
     ]
 
     app.add_middleware(
-        CORSMiddleware,
-        allow_origins=[
-            
-    "https://muse-lab-bice.vercel.app",
-        ],
-        allow_credentials=True,
-        allow_methods=["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
-        allow_headers=["*"],
-    )
+    CORSMiddleware,
+    allow_origins=[
+        "https://muse-lab-bice.vercel.app",
+        "http://localhost:3000",
+        "http://localhost:5173",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
     register_error_handlers(app)
     app.include_router(health.router)
