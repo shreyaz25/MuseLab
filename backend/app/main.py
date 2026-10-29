@@ -36,6 +36,7 @@ def create_app() -> FastAPI:
     app.add_middleware(
     CORSMiddleware,
     allow_origins=[
+        "https://muselab-k9uw.onrender.com",
         "https://muse-lab-bice.vercel.app",
         "http://localhost:3000",
         "http://localhost:5173",
