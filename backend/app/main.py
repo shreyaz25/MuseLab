@@ -29,12 +29,14 @@ def create_app() -> FastAPI:
         lifespan=lifespan,
     )
 
-    origins = get_settings().cors_origins
+    origins = [
+        "https://muse-lab-bice.vercel.app",
+    ]
 
     app.add_middleware(
         CORSMiddleware,
         allow_origins=origins,
-        allow_credentials=False,
+        allow_credentials=True,
         allow_methods=["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
         allow_headers=["*"],
     )
